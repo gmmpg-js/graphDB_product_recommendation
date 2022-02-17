@@ -1,0 +1,116 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1>Recommendation for users who view the specific product</h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 750px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#771DAE", "font": {"color": "black"}, "id": 42, "label": "[64]", "shape": "dot", "title": ["product"]}, {"color": "#771DAE", "font": {"color": "black"}, "id": 75, "label": "[186]", "shape": "dot", "title": ["product"]}, {"color": "#771DAE", "font": {"color": "black"}, "id": 192, "label": "[83]", "shape": "dot", "title": ["product"]}, {"color": "#771DAE", "font": {"color": "black"}, "id": 138, "label": "[82]", "shape": "dot", "title": ["product"]}, {"color": "#771DAE", "font": {"color": "black"}, "id": 189, "label": "[113]", "shape": "dot", "title": ["product"]}, {"color": "#949494", "font": {"color": "black"}, "id": 8416, "label": "[2087.0]", "shape": "dot", "title": ["order"]}, {"color": "#949494", "font": {"color": "black"}, "id": 8441, "label": "[2303.0]", "shape": "dot", "title": ["order"]}, {"color": "#949494", "font": {"color": "black"}, "id": 8433, "label": "[2219.0]", "shape": "dot", "title": ["order"]}, {"color": "#949494", "font": {"color": "black"}, "id": 8374, "label": "[1651.0]", "shape": "dot", "title": ["order"]}, {"color": "#949494", "font": {"color": "black"}, "id": 8205, "label": "[90.0]", "shape": "dot", "title": ["order"]}, {"color": "#B8B5D2", "font": {"color": "black"}, "id": 3457, "label": "2980", "shape": "dot", "title": ["customer"]}, {"color": "#B8B5D2", "font": {"color": "black"}, "id": 6826, "label": "4602", "shape": "dot", "title": ["customer"]}, {"color": "#B8B5D2", "font": {"color": "black"}, "id": 5129, "label": "1444", "shape": "dot", "title": ["customer"]}, {"color": "#B8B5D2", "font": {"color": "black"}, "id": 1976, "label": "4804", "shape": "dot", "title": ["customer"]}, {"color": "#B8B5D2", "font": {"color": "black"}, "id": 1964, "label": "3548", "shape": "dot", "title": ["customer"]}, {"color": "#F30259", "font": {"color": "black"}, "id": 183, "label": "[145]", "shape": "dot", "title": ["product"]}]);
+        edges = new vis.DataSet([{"arrows": "to", "from": 8416, "title": "contain", "to": 42}, {"arrows": "to", "from": 8441, "title": "contain", "to": 75}, {"arrows": "to", "from": 8433, "title": "contain", "to": 192}, {"arrows": "to", "from": 8374, "title": "contain", "to": 138}, {"arrows": "to", "from": 8205, "title": "contain", "to": 189}, {"arrows": "to", "from": 3457, "title": "transact", "to": 8416}, {"arrows": "to", "from": 6826, "title": "transact", "to": 8441}, {"arrows": "to", "from": 5129, "title": "transact", "to": 8433}, {"arrows": "to", "from": 1976, "title": "transact", "to": 8374}, {"arrows": "to", "from": 1964, "title": "transact", "to": 8205}, {"arrows": "to", "from": 3457, "title": "view", "to": 183}, {"arrows": "to", "from": 6826, "title": "view", "to": 183}, {"arrows": "to", "from": 5129, "title": "view", "to": 183}, {"arrows": "to", "from": 1976, "title": "view", "to": 183}, {"arrows": "to", "from": 1964, "title": "view", "to": 183}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0.5,
+            "centralGravity": 0.02,
+            "damping": 0.05,
+            "gravitationalConstant": -7000,
+            "springConstant": 0.001,
+            "springLength": 80
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
