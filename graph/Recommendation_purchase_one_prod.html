@@ -50,7 +50,7 @@
         
 
         // parsing and collecting nodes and edges from the python
-        nodes = new vis.DataSet([{"color": "#771DAE", "font": {"color": "black"}, "id": 43, "label": "[67]", "shape": "dot", "title": ["product"]}, {"color": "#949494", "font": {"color": "black"}, "id": 8420, "label": "[2121.0]", "shape": "dot", "title": ["order"]}, {"color": "#B8B5D2", "font": {"color": "black"}, "id": 367, "label": "7037", "shape": "dot", "title": ["customer"]}, {"color": "#949494", "font": {"color": "black"}, "id": 8246, "label": "[479.0]", "shape": "dot", "title": ["order"]}, {"color": "#F30259", "font": {"color": "black"}, "id": 25, "label": "[70]", "shape": "dot", "title": ["product"]}]);
+        nodes = new vis.DataSet([{"color": "#771DAE", "font": {"color": "black"}, "id": 43, "label": "[67]", "shape": "dot", "title": "[\u0027product\u0027]: sku [67]"}, {"color": "#949494", "font": {"color": "black"}, "id": 8420, "label": "[2121.0]", "shape": "dot", "title": "[\u0027order\u0027]: order [2121.0]"}, {"color": "#B8B5D2", "font": {"color": "black"}, "id": 367, "label": "7037", "shape": "dot", "title": "[\u0027customer\u0027]: id 167"}, {"color": "#949494", "font": {"color": "black"}, "id": 8246, "label": "[479.0]", "shape": "dot", "title": "[\u0027order\u0027]: order [479.0]"}, {"color": "#F30259", "font": {"color": "black"}, "id": 25, "label": "[70]", "shape": "dot", "title": "[\u0027product\u0027]: sku [70]"}]);
         edges = new vis.DataSet([{"arrows": "to", "from": 8420, "title": "contain", "to": 43}, {"arrows": "to", "from": 367, "title": "transact", "to": 8420}, {"arrows": "to", "from": 367, "title": "transact", "to": 8246}, {"arrows": "to", "from": 8246, "title": "contain", "to": 25}]);
 
         // adding nodes and edges to the graph
